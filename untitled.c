@@ -63,7 +63,7 @@ void move_down(struct Segment *snake, int snake_len) {
 
 int main() {
   struct Segment tail;
-  char direction;
+  char direction = 'a';
   char input;
   int snake_len = 1;
   int apple_y, apple_x;
@@ -126,8 +126,6 @@ int main() {
     }
     if (snake[0].x == apple_x && snake[0].y == apple_y) {
         snake_len++;
-        apple_y = 1 + rand() % (height - 2);
-        apple_x = 1 + rand() % (width - 2);
         struct Segment* tmp = realloc(snake, snake_len * sizeof(struct Segment));
         snake = tmp;
         snake[snake_len - 1] = tail;
